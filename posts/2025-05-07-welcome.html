@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Started The Curmudgeon’s Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/normalize.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --text: #4a3728;
+            --bg: #f5f1e9;
+            --card-bg: #ede4d3;
+            --accent: #8b5a2b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.05)),
+            url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQYV2NkwAI9u3b9//9/g4ODg4ODg4ODg4ODg4ODg4ODg4sPAK9AKnP4oC8AAAAASUVORK5CYII=');
+            background-size: cover, 10px 10px;
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        h1 {
+            font-family: 'Lora', serif;
+            margin: 0;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            margin: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        article {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(139, 90, 43, 0.1);
+            border-radius: 8px;
+            position: relative;
+            border-top: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+        article::before {
+            content: '✧';
+            font-size: 1.2rem;
+            color: var(--accent);
+            position: absolute;
+            top: -0.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        article::after {
+            content: '✧';
+            font-size: 1.2rem;
+            color: var(--accent);
+            position: absolute;
+            bottom: -0.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #a16b3e;
+            text-decoration: underline;
+        }
+        #comments {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--accent);
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            nav { flex-direction: column; text-align: center; }
+            nav a { margin: 0.3rem 0; }
+            .container { padding: 0 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>The Curmudgeon’s Chronicle</h1>
+    <p>Faith, Facts, and a Few Grumbles</p>
+</header>
+<nav>
+    <a href="/">Home</a>
+    <a href="#theology">Theology</a>
+    <a href="#history">History</a>
+    <a href="#mysteries">Mysteries</a>
+    <a href="#debunking">Debunking</a>
+    <a href="#music">Music</a>
+</nav>
+<div class="container">
+    <article>
+        <h2>Welcome!</h2>
+        <p>I’m here to grumble about the things that matter: theology, history, mysteries, music, and conspiracies. Enjoy...</p>
+    </article>
+    <div id="comments">
+        <script src="https://utteranc.es/client.js"
+                repo="CurmudgeonCorner/curmudgeon-comments"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </div>
+</div>
+</body>
+</html>
