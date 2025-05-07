@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Curmudgeon’s Corner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/normalize.css" rel="stylesheet"> <!-- Reset browser defaults -->
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --text: #333;
+            --bg: #f4f4f4;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        h1 {
+            font-family: 'Lora', serif;
+            margin: 0;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            margin: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ecf0f1; }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        article {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        #comments { margin-top: 2rem; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            nav { flex-direction: column; text-align: center; }
+            nav a { margin: 0.3rem 0; }
+            .container { padding: 0 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>The Curmudgeon’s Chronicle</h1>
+    <p>Faith, Facts, and a Few Grumbles</p>
+</header>
+<nav>
+    <a href="#theology">Theology</a>
+    <a href="#history">History</a>
+    <a href="#mysteries">Mysteries</a>
+    <a href="#debunking">Debunking</a>
+</nav>
+<div class="container">
+    <article>
+        <h2>Welcome to My Chronicle</h2>
+        <p>Grumbling about theology, history, mysteries, and conspiracies since 2025. Expect Baptist grit, historical deep dives, and no-nonsense debunking.</p>
+    </article>
+    <div id="comments">
+        <!-- Utterances script goes here -->
+        <script src="https://utteranc.es/client.js"
+                repo="username/curmudgeon-comments"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </div>
+</div>
+</body>
+</html>
