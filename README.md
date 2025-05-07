@@ -1,0 +1,1 @@
+# CurmudgeonChronicle.github.io.
