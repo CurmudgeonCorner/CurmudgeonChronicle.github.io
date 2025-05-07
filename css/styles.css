@@ -227,6 +227,7 @@ a:not(nav a):hover {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
     }
     nav a {
         margin: 0.5rem 1rem;
