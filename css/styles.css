@@ -44,11 +44,11 @@ nav a {
     -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease;
     position: relative;
-    display: inline-block; /* Ensure consistent rendering */
+    display: inline-block;
 }
 nav a:hover {
     color: #ecf0f1;
-    text-decoration: none; /* Remove the default underline */
+    text-decoration: none;
 }
 nav a::after {
     content: '';
@@ -62,7 +62,7 @@ nav a::after {
     transform: translateX(-50%);
     -webkit-transition: width 0.3s ease;
     transition: width 0.3s ease;
-    will-change: width; /* Optimize for animation */
+    will-change: width;
 }
 nav a:hover::after {
     width: 100%;
@@ -83,7 +83,7 @@ article {
     border-bottom: 2px solid var(--accent);
     -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform, box-shadow; /* Optimize for animation */
+    will-change: transform, box-shadow;
 }
 article:hover {
     -webkit-transform: translateY(-5px);
@@ -110,13 +110,13 @@ article::after {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
-a {
+a:not(nav a) {
     color: var(--accent);
     text-decoration: none;
     -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-a:hover {
+a:not(nav a):hover {
     color: #a16b3e;
     text-decoration: underline;
 }
