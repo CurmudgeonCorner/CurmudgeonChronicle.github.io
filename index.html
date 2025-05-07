@@ -16,6 +16,11 @@
     <p>Faith, Facts, and a Few Grumbles</p>
 </header>
 <nav>
+    <button class="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <a href="#theology">Theology</a>
     <a href="#history">History</a>
     <a href="#mysteries">Mysteries</a>
@@ -30,16 +35,25 @@
     </article>
 </div>
 <script>
+    // Smart scroll behavior
     let lastScrollTop = 0;
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop) {
-            nav.classList.add('hidden'); // Hide when scrolling down
+            nav.classList.add('hidden');
         } else {
-            nav.classList.remove('hidden'); // Show when scrolling up
+            nav.classList.remove('hidden');
         }
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 </script>
 </body>
