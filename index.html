@@ -35,30 +35,33 @@
     </article>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Smart scroll behavior
-        let lastScrollTop = 0;
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                nav.classList.add('hidden');
-            } else {
-                nav.classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+    // Smart scroll behavior
+    let lastScrollTop = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            nav.classList.add('hidden');
+        } else {
+            nav.classList.remove('hidden');
         }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    console.log('Hamburger:', hamburger); // Debug: Check if hamburger is found
+    console.log('NavLinks:', navLinks); // Debug: Check if navLinks is found
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            console.log('Hamburger clicked'); // Debug: Confirm click event
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    } else {
+        console.log('Hamburger or NavLinks not found'); // Debug: Identify if elements are missing
+    }
 </script>
 </body>
 </html>
