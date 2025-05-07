@@ -67,6 +67,11 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
+nav a:active {
+    color: #ecf0f1;
+    -webkit-animation: tapPop 0.2s ease;
+    animation: tapPop 0.2s ease;
+}
 .container {
     max-width: 900px;
     margin: 2rem auto;
@@ -89,6 +94,11 @@ article:hover {
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(139, 90, 43, 0.2);
+}
+article:active {
+    box-shadow: 0 5px 15px rgba(139, 90, 43, 0.2);
+    -webkit-animation: tapPop 0.2s ease;
+    animation: tapPop 0.2s ease;
 }
 article::before {
     content: '✧';
@@ -130,4 +140,14 @@ a:not(nav a):hover {
     nav { flex-direction: column; text-align: center; }
     nav a { margin: 0.3rem 0; }
     .container { padding: 0 0.5rem; }
+}
+@keyframes tapPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@-webkit-keyframes tapPop {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.1); }
+    100% { -webkit-transform: scale(1); }
 }
