@@ -5,7 +5,7 @@
     --bg: #f5f1e9;
     --card-bg: #ede4d3;
     --accent: #8b5a2b;
-    --accent-secondary: #d4a017; /* Muted gold for highlights */
+    --accent-secondary: #d4a017;
 }
 * { box-sizing: border-box; }
 body {
@@ -17,16 +17,16 @@ body {
     background-image: linear-gradient(rgba(255, 245, 230, 0.9), rgba(255, 245, 230, 0.9)),
     url('images/parchment_bg.jpg');
     background-size: cover;
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    padding-top: 80px; /* Space for the sticky nav */
+    background-attachment: fixed;
+    padding-top: 80px;
 }
 header {
     background: var(--primary);
     color: white;
     text-align: center;
     padding: 2rem 1rem;
-    position: relative; /* For positioning the graphic */
-    overflow: hidden; /* Ensure the graphic doesn’t overflow */
+    position: relative;
+    overflow: hidden;
 }
 header::before {
     content: '';
@@ -35,16 +35,16 @@ header::before {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 408px; /* Adjust size as needed */
+    width: 408px;
     height: 220px;
     background-image: url('/images/pen_and_ink.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.2; /* Translucent effect */
-    z-index: 0; /* Behind the text */
+    opacity: 0.2;
+    z-index: 0;
 }
 header h1, header p {
-    position: relative; /* Ensure text stays above the graphic */
+    position: relative;
     z-index: 1;
 }
 h1 {
@@ -56,16 +56,16 @@ h1 {
 h2 {
     font-family: 'Lora', serif;
     font-weight: 700;
-    font-size: 1.8rem; /* Slightly larger for emphasis */
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1001; /* Above the nav */
+    z-index: 1001;
 }
 .hamburger span {
     display: block;
@@ -103,7 +103,7 @@ nav {
     transition: transform 0.3s ease;
 }
 nav.hidden {
-    transform: translateY(-100%); /* Hide when scrolling down */
+    transform: translateY(-100%);
 }
 .nav-links {
     display: flex;
@@ -140,7 +140,7 @@ nav a::after {
 }
 nav a:hover::after {
     width: 100%;
-    background: var(--accent-secondary); /* Gold underline on hover */
+    background: var(--accent-secondary);
 }
 nav a:active {
     color: #ecf0f1;
@@ -155,7 +155,6 @@ nav a:active {
     opacity: 0;
     -webkit-animation: fadeIn 1s ease forwards;
     animation: fadeIn 1s ease forwards;
-    /*margin-top: 0; /* Adjust margin to avoid extra space */
 }
 .container::before {
     content: '';
@@ -164,18 +163,18 @@ nav a:active {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 612px; /* Larger for a watermark effect */
+    width: 612px;
     height: 331px;
     background-image: url('/images/pen_and_ink.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.1; /* Very faint */
-    z-index: -1; /* Behind the content */
+    opacity: 0.1;
+    z-index: -1;
 }
 article {
     background: var(--card-bg);
-    padding: 2rem; /* More padding for content */
-    margin-bottom: 2rem; /* More space between articles */
+    padding: 2rem;
+    margin-bottom: 2rem;
     box-shadow: 0 2px 10px rgba(139, 90, 43, 0.1);
     border-radius: 8px;
     position: relative;
@@ -200,7 +199,7 @@ article:hover {
 article::before, article::after {
     content: '✧';
     font-size: 1.2rem;
-    color: var(--accent-secondary); /* Gold decorative symbols */
+    color: var(--accent-secondary);
     position: absolute;
 }
 article::before {
@@ -231,21 +230,29 @@ a:not(nav a):hover {
     border-top: 1px solid var(--accent);
 }
 @media (max-width: 768px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+        margin: 0 auto;
+    }
     h1 { font-size: 2rem; }
     h2 { font-size: 1.5rem; }
-    body { padding-top: 60px; } /* Slim nav bar height */
+    body { padding-top: 60px; }
     nav {
         padding: 0.5rem;
-        justify-content: flex-end; /* Align hamburger to the right */
+        justify-content: flex-end;
+        align-items: center;
     }
     .hamburger {
-        display: block; /* Show on mobile */
+        display: block;
     }
     .nav-links {
-        display: none; /* Hidden by default */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Below the nav bar */
+        top: 100%;
         left: 0;
         right: 0;
         background: linear-gradient(rgba(52, 73, 94, 0.95), rgba(52, 73, 94, 0.95)),
@@ -256,13 +263,22 @@ a:not(nav a):hover {
         z-index: 999;
     }
     .nav-links.active {
-        display: flex; /* Show when hamburger is clicked */
+        display: flex;
     }
     nav a {
         margin: 0.5rem 0;
         text-align: center;
     }
     .container { padding: 0 0.5rem; }
+    .container::before {
+        width: 200px;
+        height: 200px;
+        opacity: 0.08;
+    }
+    article {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
 @keyframes tapPop {
     0% { transform: scale(1); }
