@@ -1,10 +1,10 @@
 :root {
-    --primary: #2c3e50; /* Dark header */
-    --secondary: #34495e; /* Dark nav */
-    --text: #4a3728; /* Soft brown for text */
-    --bg: #f5f1e9; /* Parchment beige background */
-    --card-bg: #ede4d3; /* Slightly darker beige for article cards */
-    --accent: #8b5a2b; /* Warm brown for accents */
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --text: #4a3728;
+    --bg: #f5f1e9;
+    --card-bg: #ede4d3;
+    --accent: #8b5a2b;
 }
 * { box-sizing: border-box; }
 body {
@@ -13,7 +13,6 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
-    /* Subtle parchment texture via gradient */
     background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.05)),
     url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQYV2NkwAI9u3b9//9/g4ODg4ODg4ODg4ODg4ODg4ODg4sPAK9AKnP4oC8AAAAASUVORK5CYII=');
     background-size: cover, 10px 10px;
@@ -43,7 +42,7 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
-    position: relative; /* For positioning the underline */
+    position: relative;
 }
 nav a:hover {
     color: #ecf0f1;
@@ -53,14 +52,14 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background: #ecf0f1; /* Match the hover color */
-    bottom: -4px; /* Position below the text */
+    background: #ecf0f1;
+    bottom: -4px;
     left: 50%;
     transform: translateX(-50%);
-    transition: width 0.3s ease; /* Animate the width */
+    transition: width 0.3s ease;
 }
 nav a:hover::after {
-    width: 100%; /* Grow to full width on hover */
+    width: 100%;
 }
 .container {
     max-width: 900px;
@@ -76,11 +75,11 @@ article {
     position: relative;
     border-top: 2px solid var(--accent);
     border-bottom: 2px solid var(--accent);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 article:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 5px 15px rgba(139, 90, 43, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(139, 90, 43, 0.2);
 }
 article::before {
     content: '✧';
@@ -108,6 +107,11 @@ a {
 a:hover {
     color: #a16b3e;
     text-decoration: underline;
+}
+#comments {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid var(--accent);
 }
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
