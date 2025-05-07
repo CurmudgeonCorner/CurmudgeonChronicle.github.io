@@ -22,6 +22,7 @@
         <span></span>
     </button>
     <div class="nav-links">
+        <a href="/">Home</a>
         <a href="/categories/theology.html">Theology</a>
         <a href="/categories/history.html">History</a>
         <a href="/categories/mysteries.html">Mysteries</a>
@@ -36,41 +37,6 @@
         <p><a href="/posts/2025-05-07-welcome.html">Read my first post: Welcome!</a></p>
     </article>
 </div>
-<script>
-    console.log('Script is running'); // Debug: Confirm script execution
-
-    try {
-        // Smart scroll behavior
-        let lastScrollTop = 0;
-        const nav = document.querySelector('nav');
-        console.log('Nav element:', nav); // Debug: Check if nav is found
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.scrollY || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                nav.classList.add('hidden');
-            } else {
-                nav.classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        console.log('Hamburger:', hamburger); // Debug: Check if hamburger is found
-        console.log('NavLinks:', navLinks); // Debug: Check if navLinks is found
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                console.log('Hamburger clicked'); // Debug: Confirm click event
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        } else {
-            console.log('Hamburger or NavLinks not found');
-        }
-    } catch (error) {
-        console.error('JavaScript error:', error); // Debug: Catch any errors
-    }
-</script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>

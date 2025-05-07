@@ -15,7 +15,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     background-image: linear-gradient(rgba(255, 245, 230, 0.9), rgba(255, 245, 230, 0.9)),
-    url('/images/parchment_bg.jpg');
+    url('images/parchment_bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     padding-top: 80px;
@@ -88,8 +88,6 @@ nav {
     background: var(--secondary);
     padding: 0.6rem;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: fixed;
@@ -104,11 +102,6 @@ nav {
 }
 nav.hidden {
     transform: translateY(-100%);
-}
-.nav-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 nav a {
     color: white;
@@ -229,6 +222,16 @@ a:not(nav a):hover {
     padding: 1rem;
     border-top: 1px solid var(--accent);
 }
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav a {
+        margin: 0.5rem 1rem;
+    }
+}
 @media (max-width: 768px) {
     header {
         padding: 1.5rem 1rem;
@@ -244,13 +247,13 @@ a:not(nav a):hover {
         padding: 0.5rem;
         justify-content: flex-end;
         align-items: center;
-        flex-wrap: nowrap; /* Prevent wrapping to ensure hamburger stays on one line */
+        flex-wrap: nowrap;
     }
     .hamburger {
         display: block;
     }
-    nav .nav-links {
-        display: none !important; /* Ensure hidden by default */
+    .nav-links {
+        display: none !important;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -262,9 +265,14 @@ a:not(nav a):hover {
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         z-index: 999;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
-    nav .nav-links.active {
-        display: flex !important; /* Show when active */
+    .nav-links.active {
+        display: flex !important;
+        transform: translateY(0);
+        opacity: 1;
     }
     nav a {
         margin: 0.5rem 0;
