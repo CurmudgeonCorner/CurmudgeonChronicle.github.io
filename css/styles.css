@@ -19,6 +19,21 @@ body {
     background-size: cover;
     background-attachment: fixed;
     padding-top: 80px;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 612px;
+    height: 331px;
+    background-image: url('/images/pen_and_ink.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
 }
 header {
     background: var(--primary);
@@ -144,25 +159,9 @@ nav a:active {
     max-width: 900px;
     margin: 3rem auto;
     padding: 0 1.5rem;
-    position: relative;
     opacity: 0;
     -webkit-animation: fadeIn 1s ease forwards;
     animation: fadeIn 1s ease forwards;
-}
-.container::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 612px;
-    height: 331px;
-    background-image: url('/images/pen_and_ink.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    z-index: -1;
 }
 article {
     background: var(--card-bg);
@@ -280,7 +279,7 @@ a:not(nav a):hover {
         text-align: center;
     }
     .container { padding: 0 0.5rem; }
-    .container::before {
+    body::before {
         width: 200px;
         height: 200px;
         opacity: 0.08;
