@@ -26,16 +26,13 @@ const toggleTheme = () => {
     updateUtterancesTheme(); // Update Utterances on theme change
 };
 
-// Update Utterances theme by reloading the script
+// Update Utterances theme by clearing and reloading the script
 const updateUtterancesTheme = () => {
     const utterancesContainer = document.querySelector('#comments');
     if (!utterancesContainer) return;
 
-    // Remove existing Utterances script and iframe
-    const existingScript = document.querySelector('#utterances-script');
-    const existingIframe = document.querySelector('.utterances');
-    if (existingIframe) existingIframe.remove();
-    if (existingScript) existingScript.remove();
+    // Clear all content in #comments to prevent duplicates
+    utterancesContainer.innerHTML = '';
 
     // Create new script
     const theme = root.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light';
