@@ -15,7 +15,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     background-image: linear-gradient(rgba(255, 245, 230, 0.9), rgba(255, 245, 230, 0.9)),
-    url('images/parchment_bg.jpg');
+    url('/images/parchment_bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     padding-top: 80px;
