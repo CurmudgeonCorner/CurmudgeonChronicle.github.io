@@ -65,7 +65,12 @@
         <p>I’m here to grumble about the things that matter: theology, history, mysteries, music, and conspiracies. Enjoy...</p>
     </article>
     <div id="comments">
-        <script src="https://utteranc.es/client.js"
+        <div class="comments-loading">
+            <div class="spinner"></div>
+            <span>Loading comments...</span>
+        </div>
+        <script id="utterances-script"
+                src="https://utteranc.es/client.js"
                 repo="CurmudgeonCorner/curmudgeon-comments"
                 issue-term="pathname"
                 theme="github-light"

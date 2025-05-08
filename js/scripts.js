@@ -51,7 +51,7 @@ const updateUtterancesTheme = () => {
 
 // Event listeners
 window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop) {
         nav.classList.add('hidden');
     } else {
