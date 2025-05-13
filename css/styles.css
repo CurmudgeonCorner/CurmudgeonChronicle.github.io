@@ -233,12 +233,22 @@ a:not(nav a):hover {
     display: block;
     margin: 0 auto;
     width: 100%;
-    max-width: 800px; /* Adjust for header image */
+    max-width: 800px;
     height: auto;
 }
 .centered-image.mid-post {
-    max-width: 600px; /* Smaller size for mid-post images */
-    margin: 20px auto; /* Vertical spacing */
+    max-width: 600px;
+    margin: 20px auto;
+}
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--text);
+    text-align: center;
+    margin: 0.5rem auto 1rem;
+    max-width: 600px;
+    font-style: italic;
+    opacity: 0.85;
+    line-height: 1.4;
 }
 .theme-toggle {
     background: none;
@@ -388,6 +398,11 @@ a:not(nav a):hover {
     article {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
+    }
+    .image-caption {
+        font-size: 0.8rem;
+        margin: 0.4rem auto 0.8rem;
+        max-width: 90%;
     }
 }
 @keyframes tapPop {
