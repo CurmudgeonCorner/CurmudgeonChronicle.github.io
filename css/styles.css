@@ -309,7 +309,6 @@ a:not(nav a):hover {
     padding-top: 1.5rem;
     position: relative;
 }
-
 .references::before {
     content: '';
     position: absolute;
@@ -319,7 +318,6 @@ a:not(nav a):hover {
     height: 2px;
     background: var(--accent);
 }
-
 .references h3 {
     font-family: 'Lora', serif;
     font-size: 1.4rem;
@@ -327,14 +325,12 @@ a:not(nav a):hover {
     color: var(--text);
     margin: 0 0 1rem;
 }
-
 .references ol {
     list-style: none;
     padding: 0;
     margin: 0;
     counter-reset: ref-counter;
 }
-
 .references li {
     font-size: 0.95rem;
     color: var(--text);
@@ -346,7 +342,6 @@ a:not(nav a):hover {
     position: relative;
     padding-left: 2rem;
 }
-
 .references li::before {
     content: "[" counter(ref-counter) "] ";
     position: absolute;
@@ -354,18 +349,45 @@ a:not(nav a):hover {
     color: var(--accent);
     font-weight: bold;
 }
-
 .references li a {
     color: var(--accent);
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .references li a:hover {
     color: var(--accent-secondary);
     text-decoration: underline;
 }
-
+.references li:hover {
+    background: rgba(139, 90, 43, 0.05);
+    transition: background 0.3s ease;
+}
+.cite-ref {
+    font-size: 0.8rem;
+    vertical-align: super;
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 0.1rem;
+}
+.cite-ref:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+}
+.multi-cite .cite-ref::after {
+    content: none;
+}
+.cite-ref::after {
+    content: '';
+    display: inline-block;
+    width: 0.1em;
+}
+.references li.highlight {
+    background: rgba(139, 90, 43, 0.1);
+    transition: background 0.3s ease;
+}
+[data-theme="dark"] .references li.highlight {
+    background: rgba(230, 184, 0, 0.1);
+}
 .spinner {
     width: 20px;
     height: 20px;
