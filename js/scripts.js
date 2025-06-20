@@ -80,43 +80,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Process citations and assign numbers
     citations.forEach(citation => {
-        const refId = citation.getAttribute('data-ref').trim();
+        const refIds = citation.getAttribute('data-ref').trim().split(',').map(id => id.trim()).filter(id => id); // Split into multiple refIds
         const pageAttr = citation.getAttribute('data-page'); // Get page attribute as string
 
-        console.log(`Processing citation: refId=${refId}, pageAttr=${pageAttr}`); // Debug log
+        console.log(`Processing citation: refIds=${refIds.join(', ')}, pageAttr=${pageAttr}`); // Debug log
 
-        if (!document.getElementById(refId)) {
-            console.warn(`Reference with ID "${refId}" not found in references list.`);
+        let validRefIds = [];
+        refIds.forEach(refId => {
+            if (!document.getElementById(refId)) {
+                console.warn(`Reference with ID "${refId}" not found in references list.`);
+            } else {
+                validRefIds.push(refId);
+            }
+        });
+
+        if (validRefIds.length === 0) {
             citation.outerHTML = '<span class="cite-ref">[?]</span>';
             return;
         }
 
-        // Assign number only once per refId
-        if (!citationMap.has(refId)) {
-            citationMap.set(refId, currentNumber++);
-            console.log(`New number assigned: ${refId} = ${citationMap.get(refId)}`);
-        }
-
-        const number = citationMap.get(refId);
         let pageText = '';
         let pages = [];
+        let hasRange = false;
         if (pageAttr) {
-            pages = pageAttr.split(',').map(p => p.trim()).filter(p => p); // Split and clean page numbers
+            // Split by commas and process each page segment
+            const pageSegments = pageAttr.split(',').map(p => p.trim()).filter(p => p);
+            pages = pageSegments.map(segment => {
+                // Check for range (e.g., "224-225")
+                const rangeMatch = segment.match(/^(\d+)-(\d+)$/);
+                if (rangeMatch && !isNaN(rangeMatch[1]) && !isNaN(rangeMatch[2])) {
+                    hasRange = true;
+                    return `${rangeMatch[1]}-${rangeMatch[2]}`; // Keep as range string
+                }
+                return segment; // Single page
+            });
             console.log(`Pages array: ${JSON.stringify(pages)}`); // Debug pages
-            if (pages.length === 1) {
-                pageText = `, p. ${pages[0]}`; // Single page
-            } else if (pages.length > 1) {
-                pageText = `, pp. ${pages.join(', ')}`; // Multiple pages
+
+            if (pages.length === 1 && !hasRange) {
+                pageText = `, p. ${pages[0]}`; // Single page, no range
             } else {
-                console.warn(`No valid pages found in ${pageAttr} for refId ${refId}`);
+                pageText = `, pp. ${pages.join(', ')}`; // Multiple pages or range
             }
         }
 
-        const ariaPageText = pages.length > 0 ? `, page${pages.length > 1 ? 's' : ''} ${pageAttr ? pageAttr.replace(/, /g, ', ') : ''}` : '';
-        const link = `<a href="#${refId}" class="cite-ref" aria-label="Reference ${number}${pageText ? ariaPageText : ''}">[${number}${pageText}]</a>`;
-        console.log(`Generated link: ${link}`); // Debug link
+        // Generate links for each valid refId with unique numbers
+        const links = validRefIds.map(refId => {
+            let number = citationMap.get(refId);
+            if (!number) {
+                number = currentNumber++;
+                citationMap.set(refId, number);
+                console.log(`New number assigned: ${refId} = ${number}`);
+            }
+            const ariaPageText = pages.length > 0 ? `, page${pages.length > 1 || hasRange ? 's' : ''} ${pageAttr ? pageAttr.replace(/, /g, ', ') : ''}` : '';
+            return `<a href="#${refId}" class="cite-ref" aria-label="Reference ${number}${ariaPageText}">[${number}${pageText}]</a>`;
+        });
 
-        citation.outerHTML = link;
+        const linkOutput = validRefIds.length > 1
+            ? `<span class="multi-cite">${links.join(' ')}</span>` // Wrap multiple citations
+            : links[0]; // Single citation
+
+        console.log(`Generated link output: ${linkOutput}`); // Debug link output
+
+        try {
+            citation.outerHTML = linkOutput;
+        } catch (e) {
+            console.error(`Failed to replace citation for refIds ${refIds.join(', ')}: ${e.message}`);
+        }
     });
 
     // Reorder references list if it exists
