@@ -403,6 +403,55 @@ a:not(nav a):hover {
 #comments .utterances ~ .comments-loading {
     display: none;
 }
+.scripture-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(139, 90, 43, 0.1);
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.5s; /* Matches article animation */
+}
+.scripture-table caption {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    color: var(--text);
+    text-align: center;
+    padding: 0.5rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+.scripture-table th,
+.scripture-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+}
+.scripture-table th {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    background: var(--primary);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.scripture-table tr:hover {
+    background: rgba(139, 90, 43, 0.05);
+    transition: background 0.3s ease;
+}
+[data-theme="dark"] .scripture-table tr:hover {
+    background: rgba(230, 184, 0, 0.1);
+}
+.scripture-table td {
+    vertical-align: top;
+}
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
         --primary: #1a2634;
@@ -498,6 +547,44 @@ a:not(nav a):hover {
     .references li {
         font-size: 0.9rem;
         padding-left: 1.8rem;
+    }
+    .scripture-table {
+        display: block;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+    .scripture-table thead,
+    .scripture-table tbody,
+    .scripture-table th,
+    .scripture-table td,
+    .scripture-table tr {
+        display: block;
+    }
+    .scripture-table th {
+        display: none; /* Hide headers on mobile */
+    }
+    .scripture-table td {
+        position: relative;
+        padding: 0.8rem 0.8rem 0.8rem 8rem; /* Increased padding-left to clear label */
+        text-align: left; /* Left-justify content */
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+    }
+    .scripture-table td[data-label="Passage"] {
+        font-weight: bold; /* Bold passage names in mobile view */
+    }
+    .scripture-table td:before {
+        content: attr(data-label) ": "; /* Added colon for clarity */
+        position: absolute;
+        left: 0.8rem;
+        width: 7rem; /* Fixed width to prevent overlap */
+        padding-right: 0.5rem;
+        font-weight: bold;
+        text-align: left;
+        color: var(--accent);
+    }
+    [data-theme="dark"] .scripture-table td:before {
+        color: var(--accent-secondary);
     }
 }
 @keyframes tapPop {
