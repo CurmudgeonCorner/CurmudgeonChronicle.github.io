@@ -9,7 +9,7 @@
     <!-- Category Pages -->
     <url>
         <loc>https://thecurmudgeonschronicle.com/categories/theology.html</loc>
-        <lastmod>2025-10-06</lastmod>
+        <lastmod>2026-05-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -209,6 +209,12 @@
     <url>
         <loc>https://thecurmudgeonschronicle.com/posts/2025-10-27-the-zodiacs-shadow-part-3.html</loc>
         <lastmod>2025-10-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://thecurmudgeonschronicle.com/posts/2026-05-21-boomers-are-not-the-enemy.html</loc>
+        <lastmod>2026-05-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>

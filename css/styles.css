@@ -452,6 +452,49 @@ a:not(nav a):hover {
 .scripture-table td {
     vertical-align: top;
 }
+/* -------------------------------------------------
+   Quote block – ancient-stele style, matches your theme
+   ------------------------------------------------- */
+.quote-block {
+    position: relative;
+    max-width: 720px;
+    margin: 2.5rem auto;
+    padding-left: 3rem;
+    padding: 1.5rem 1.5rem 1.5rem 3rem;
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--card-bg);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(139,90,43,.08);
+}
+
+/* Thick muted vertical bar */
+.quote-block::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    background: var(--accent);
+    opacity: .55;
+    border-radius: 3px;
+}
+
+/* Optional: larger first line */
+.quote-block > p:first-child {
+    margin-top: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .quote-block::before {
+    opacity: .65;
+}
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
         --primary: #1a2634;
